@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "La Bonne Pizza"
+description = "A warm, editorial website for La Bonne Pizza in Alvalade, Lisbon, sharing the pizzeria's story, menu highlights, opening hours, and how to visit."
+version = "1.0.0"
+id = "artifacts/la-bonne-pizza"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21581
+
+[services.development]
+run = "pnpm --filter @workspace/la-bonne-pizza run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/la-bonne-pizza", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/la-bonne-pizza/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21581"
+BASE_PATH = "/"

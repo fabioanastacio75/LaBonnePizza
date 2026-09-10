@@ -1,0 +1,1 @@
+- [Approved content sources](approved-content-sources.md) — the owner approved the NiT feature for La Bonne Pizza copy, images, and facts.
